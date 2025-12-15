@@ -34,7 +34,7 @@ class Soap extends \SoapClient
         parent::__construct($wsdl, $options);
     }
 
-    public function __doRequest($request, $location, $action, $version, $one_way = 0): ?string
+    public function __doRequest($request, $location, $action, $version, $one_way = 0, ?string $uriParserClass = null): ?string
     {
         if (null !== $this->soapResponse) {
             return $this->soapResponse;
