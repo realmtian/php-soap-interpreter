@@ -2,12 +2,11 @@
 
 use Meng\Soap\Interpreter;
 use Meng\Soap\SoapRequest;
+use PHPUnit\Framework\Attributes\Test;
 
 class InterpreterTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function requestWsdlArrayArguments()
     {
         $interpreter = new Interpreter(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'wsdl' . DIRECTORY_SEPARATOR . 'currency.wsdl');
@@ -16,17 +15,15 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('http://www.webserviceX.NET/ConversionRate', $request->getSoapAction());
         $this->assertEquals('1', $request->getSoapVersion());
         $this->assertNotEmpty($request->getSoapMessage());
-        $this->assertRegExp('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
-        $this->assertRegExp('/ConversionRate/', $request->getSoapMessage());
-        $this->assertRegExp('/FromCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/AFA/', $request->getSoapMessage());
-        $this->assertRegExp('/ToCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/ALL/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ConversionRate/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/FromCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/AFA/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ToCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ALL/', $request->getSoapMessage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function requestWsdlObjectArguments()
     {
         $interpreter = new Interpreter(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'wsdl' . DIRECTORY_SEPARATOR . 'currency.wsdl');
@@ -38,17 +35,15 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('http://www.webserviceX.NET/ConversionRate', $request->getSoapAction());
         $this->assertEquals('1', $request->getSoapVersion());
         $this->assertNotEmpty($request->getSoapMessage());
-        $this->assertRegExp('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
-        $this->assertRegExp('/ConversionRate/', $request->getSoapMessage());
-        $this->assertRegExp('/FromCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/AFA/', $request->getSoapMessage());
-        $this->assertRegExp('/ToCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/ALL/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ConversionRate/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/FromCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/AFA/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ToCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ALL/', $request->getSoapMessage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function requestWsdlInputHeaders()
     {
         $interpreter = new Interpreter(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'wsdl' . DIRECTORY_SEPARATOR . 'currency.wsdl');
@@ -62,20 +57,18 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('http://www.webserviceX.NET/ConversionRate', $request->getSoapAction());
         $this->assertEquals('1', $request->getSoapVersion());
         $this->assertNotEmpty($request->getSoapMessage());
-        $this->assertRegExp('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
-        $this->assertRegExp('/www\.namespace\.com/', $request->getSoapMessage());
-        $this->assertRegExp('/test_header/', $request->getSoapMessage());
-        $this->assertRegExp('/header_data/', $request->getSoapMessage());
-        $this->assertRegExp('/ConversionRate/', $request->getSoapMessage());
-        $this->assertRegExp('/FromCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/AFA/', $request->getSoapMessage());
-        $this->assertRegExp('/ToCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/ALL/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/www\.namespace\.com/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/test_header/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/header_data/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ConversionRate/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/FromCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/AFA/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ToCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ALL/', $request->getSoapMessage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function requestTypeMapToXML()
     {
         $interpreter = new Interpreter(
@@ -98,17 +91,15 @@ class InterpreterTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('http://www.webserviceX.NET/ConversionRate', $request->getSoapAction());
         $this->assertEquals('1', $request->getSoapVersion());
         $this->assertNotEmpty($request->getSoapMessage());
-        $this->assertRegExp('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
-        $this->assertRegExp('/ConversionRate/', $request->getSoapMessage());
-        $this->assertRegExp('/FromCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/OLD/', $request->getSoapMessage());
-        $this->assertRegExp('/ToCurrency/', $request->getSoapMessage());
-        $this->assertRegExp('/NEW/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/http:\/\/schemas\.xmlsoap\.org\/soap\/envelope\//', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ConversionRate/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/FromCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/OLD/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/ToCurrency/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/NEW/', $request->getSoapMessage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWsdl()
     {
         $responseMessage = <<<EOD
@@ -127,9 +118,7 @@ EOD;
         $this->assertEquals(['ConversionRateResult' => '-1'], (array)$responseMessage);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWsdlOutputHeaders()
     {
         $responseMessage = <<<EOD
@@ -155,9 +144,7 @@ EOD;
         $this->assertNotEmpty($outputHeaders);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWsdlClassMap()
     {
         $responseMessage = <<<EOD
@@ -176,9 +163,7 @@ EOD;
         $this->assertEquals(['ConversionRateResult' => '-1'], (array)$responseMessage);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseTypeMapFromXML()
     {
         $responseMessage = <<<EOD
@@ -213,9 +198,7 @@ EOD;
         $this->assertEquals(['MockedResult' => 100], (array)$responseMessage);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWsdlDisableExceptions()
     {
         $interpreter = new Interpreter(null, ['uri'=>'www.uri.com', 'location'=>'www.location.com', 'exceptions' => false]);
@@ -244,9 +227,7 @@ EOD;
         $this->assertInstanceOf('\SoapFault', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function requestWsdlSoapV12()
     {
         $interpreter = new Interpreter(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'wsdl' . DIRECTORY_SEPARATOR . 'airport.wsdl', ['soap_version' => SOAP_1_2]);
@@ -255,14 +236,12 @@ EOD;
         $this->assertEquals('http://www.webserviceX.NET/GetAirportInformationByCountry', $request->getSoapAction());
         $this->assertEquals('2', $request->getSoapVersion());
         $this->assertNotEmpty($request->getSoapMessage());
-        $this->assertRegExp('/http:\/\/www\.w3\.org\/2003\/05\/soap-envelope/', $request->getSoapMessage());
-        $this->assertRegExp('/GetAirportInformationByCountry/', $request->getSoapMessage());
-        $this->assertRegExp('/country/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/http:\/\/www\.w3\.org\/2003\/05\/soap-envelope/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/GetAirportInformationByCountry/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/country/', $request->getSoapMessage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWsdlSoapV12()
     {
         $responseMessage = <<<EOD
@@ -280,9 +259,7 @@ EOD;
         $this->assertEquals(['GetAirportInformationByCountryResult' => '<NewDataSet />'], (array)$responseMessage);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function requestWithoutWsdl()
     {
         $interpreter = new Interpreter(null, ['uri'=>'www.uri.com', 'location'=>'www.location.com']);
@@ -290,15 +267,13 @@ EOD;
         $this->assertEquals('www.location.com', $request->getEndpoint());
         $this->assertEquals('www.uri.com#anything', $request->getSoapAction());
         $this->assertEquals('1', $request->getSoapVersion());
-        $this->assertRegExp('/one/', $request->getSoapMessage());
-        $this->assertRegExp('/two/', $request->getSoapMessage());
-        $this->assertRegExp('/three/', $request->getSoapMessage());
-        $this->assertRegExp('/four/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/one/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/two/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/three/', $request->getSoapMessage());
+        $this->assertMatchesRegularExpression('/four/', $request->getSoapMessage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWithoutWsdl()
     {
         $responseMessage = <<<EOD
@@ -337,9 +312,7 @@ EOD;
         $this->assertNotEmpty($outputHeaders);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function faultResponseNotAffectSubsequentRequests()
     {
         $interpreter = new Interpreter(null, ['uri'=>'www.uri.com', 'location'=>'www.location.com']);
@@ -374,13 +347,13 @@ EOD;
 }
 
 /** Test support only */
+#[\AllowDynamicProperties]
 class  ConversionRate
 {
-
 }
 
 /** Test support only */
+#[\AllowDynamicProperties]
 class ConversionRateResponse
 {
-
 }

@@ -29,7 +29,7 @@ class Interpreter
      * @param mixed  $input_headers     An array of headers to be interpreted along with the SOAP request.
      * @return SoapRequest
      */
-    public function request($function_name, array $arguments = [], array $options = null, $input_headers = null):  SoapRequest
+    public function request($function_name, array $arguments = [], ?array $options = null, $input_headers = null): SoapRequest
     {
         return $this->soap->request($function_name, $arguments, $options, $input_headers);
     }
@@ -43,7 +43,7 @@ class Interpreter
      * @return mixed
      * @throws \SoapFault
      */
-    public function response($response, $function_name, array &$output_headers = null)
+    public function response($response, $function_name, ?array &$output_headers = null)
     {
         return $this->soap->response($response, $function_name, $output_headers);
     }
