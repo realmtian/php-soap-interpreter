@@ -4,11 +4,13 @@
 A PHP library for interpreting `SOAP 1.1` and `SOAP 1.2` messages. It can be used in WSDL or non-WSDL mode. The implementation is built on the top of PHP's [SoapClient](http://php.net/manual/en/class.soapclient.php).
 
 ### Prerequisite
-PHP 7.1 --enablelibxml --enable-soap
+
+PHP 8.2 or newer with `ext-soap`. PHP 7.x and PHP 8.0-8.1 remain available
+only through older releases.
 
 ### Install
 ```
-composer require meng-tian/php-soap-interpreter
+composer require meng-tian/php-soap-interpreter:^2.1
 ```
 
 ### Usage
@@ -109,14 +111,12 @@ Output:
 </SOAP-ENV:Envelope>
 ```
 
-###### SOAP output headers
-TODO
+### Testing
 
-###### Class map
-TODO
-
-###### Type map
-TODO
+```sh
+composer install
+vendor/bin/phpunit
+```
 
 ### Relevant
 - [SOAP HTTP Binding](https://github.com/meng-tian/soap-http-binding): binding SOAP messages to PSR-7 HTTP messages.
@@ -124,4 +124,3 @@ TODO
 
 ### License
 This library is released under [MIT](https://github.com/meng-tian/php-soap-interpreter/blob/master/LICENSE.md) license.
-
